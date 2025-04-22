@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #000;
+  background-color: #fff;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+header {
+  width: 100%;
+}
+
+header img {
+  width: 100%;
+  display: block;
+  height: 12.5vh;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+nav {
+  background-color: #515151;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  border-bottom: 1px solid #222;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: normal;
+}
+
+nav button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+nav button svg {
+  width: 24px;
+  height: 24px;
+}
+
+main {
+  padding: 2rem;
+  text-align: left;
+  max-width: 900px;
+  margin: auto;
+}
+
+footer {
+  background-color: #515151;
+  padding: 0.25rem 0;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Grille responsive */
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding-top: 1rem;
+}
+
+.portfolio img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-fit: cover;
+  object-position: bottom;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.portfolio img:hover {
+  transform: scale(1.03);
+}
+
+/* Formulaire */
+form {
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Lightbox avec navigation */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  box-shadow: 0 0 20px #000;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0 1rem;
+  user-select: none;
+}
+
+.nav.prev { left: 1rem; }
+.nav.next { right: 1rem; }
+
+/* Mode sombre */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode nav {
+  background-color: #515151;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode nav a,
+body.dark-mode nav button {
+  color: #eee;
+}
+
+body.dark-mode footer {
+  background-color: #515151;
+  padding: 0.25rem 0;
+  color: #888;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode button {
+  background-color: #eee;
+  color: #000;
+}
+
+body.dark-mode .lightbox {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+nav .nav-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+nav {
+  justify-content: center;
+}
+
+nav .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+nav a.active {
+  opacity: 1;
+  color: #fff;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* Bouton thème dans le footer */
+footer .theme-toggle {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+footer .theme-toggle button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+footer .theme-toggle button svg {
+  width: 24px;
+  height: 24px;
+}
+.footer-content-disabled {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer-content button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.footer-content button svg {
+  width: 24px;
+  height: 24px;
+}
+.nav-bar {
+  justify-content: space-between;
+  background-color: #515151;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-bar button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+footer {
+  background-color: #515151;
+  color: #ccc;
+  text-align: center;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+}
+.nav-bar button {
+  margin-top: -5px; /* Relever un peu le bouton */
+}
+.expo-table {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1rem;
+}

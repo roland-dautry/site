@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Roland Dautry</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <img src="images/header.jpg" alt="Image en haut de page">
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="">Accueil</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="expositions.html" class="">Expositions</a>
+      <a href="contact.html" class="">Contact</a>
+    </div>
+    <button id="darkModeToggle" aria-label="Changer le mode sombre"></button>
+  </nav>
+</header>
+
+<main>
+  <p>Grès et bétons réfractaires, engobes, enduits, glaçures...</p>
+  <div class="portfolio">
+    <img src="images/1.jpg" alt="Œuvre 1">
+    <img src="images/2.jpg" alt="Œuvre 2">
+    <img src="images/3.jpg" alt="Œuvre 3">
+    <img src="images/4.jpg" alt="Œuvre 4">
+    <img src="images/5.jpg" alt="Œuvre 5">
+    <img src="images/6.jpg" alt="Œuvre 6">
+    <img src="images/7.jpg" alt="Œuvre 7">
+    <img src="images/8.jpg" alt="Œuvre 8">
+    <img src="images/9.jpg" alt="Œuvre 9">
+    <img src="images/10.jpg" alt="Œuvre 10">
+    <img src="images/11.jpg" alt="Œuvre 11">
+    <img src="images/12.jpg" alt="Œuvre 12">
+    <img src="images/13.jpg" alt="Œuvre 13">
+    <img src="images/14.jpg" alt="Œuvre 14">
+    <img src="images/15.jpg" alt="Œuvre 15">
+    <img src="images/16.jpg" alt="Œuvre 16">
+    <img src="images/17.jpg" alt="Œuvre 17">
+  </div>
+</main>
+<div id="lightbox" class="lightbox">
+  <button class="nav prev" onclick="showPrevImage()">&#10094;</button>
+  <img id="lightbox-img" src="" alt="Agrandissement">
+  <button class="nav next" onclick="showNextImage()">&#10095;</button>
+</div>
+
+<footer>
+  <span>© Roland Dautry 2025</span>
+</footer>
+<script src="theme.js"></script>
+
+<script>
+  const images = Array.from(document.querySelectorAll(".portfolio img"));
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = "flex";
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+  }
+
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  function showPrevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, i) => {
+    img.addEventListener("click", () => openLightbox(i));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showNextImage();
+      if (e.key === "ArrowLeft") showPrevImage();
+    }
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+</script>
+</body>
+</html>
